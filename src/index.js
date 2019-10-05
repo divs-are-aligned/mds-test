@@ -1,12 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// React
+import React from "react";
+import { render } from "react-dom";
+// MUI
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+//Other
+import WebFont from "webfontloader";
+// App
+import Theme from "./styles/theme.json";
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+WebFont.load({
+  google: {
+    families: ["Merriweather", "Source Sans Pro"]
+  }
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const _DefaultTheme_ = createMuiTheme(Theme);
+
+render(
+  <ThemeProvider theme={_DefaultTheme_}>
+    <CssBaseline />
+    <App />
+  </ThemeProvider>,
+  document.getElementById("root")
+);

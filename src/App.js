@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// React
+import React from "react";
+import { useRoutes } from "hookrouter";
+//App
+import AppRouter from "./routing";
+import { Header, Footer } from "./shared";
+// Assets
+import McKLogo from "./assets/imgs/McK_ScriptMark_RGB_McKDeepBlue.png";
 
-function App() {
+const App = () => {
+  const routeResult = useRoutes(AppRouter);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header logo={McKLogo} />
+      {routeResult}
+      <Footer logo={McKLogo} />
+    </>
   );
-}
+};
 
 export default App;

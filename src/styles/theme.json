@@ -1,0 +1,35 @@
+{
+  "palette": {
+    "primary": {
+      "main": "#FFF"
+    },
+    "secondary": {
+      "main": "#F0F0F0"
+    },
+    "text": {
+      "primary": "#000"
+    }
+  },
+  "typography": {
+    "fontFamily": "Source Sans Pro",
+    "h1": {
+      "fontFamily": "Merriweather"
+    },
+    "h2": {
+      "fontFamily": "Merriweather"
+    },
+    "h3": {
+      "fontFamily": "Merriweather"
+    },
+    "h4": {
+      "fontFamily": "Merriweather"
+    }
+  },
+  "overrides": {
+    "MuiToolbar": {
+      "gutters": {
+        "padding": "0 2rem"
+      }
+    }
+  }
+}
