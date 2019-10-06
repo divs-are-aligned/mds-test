@@ -22,8 +22,9 @@ import {
  */
 const useStyles = makeStyles({
   scrollHeader: {
-    minHeight: "3rem",
-    transition: "minHeight 300ms ease"
+    "& img": {
+      // maxHeight: "3rem"
+    }
   }
 });
 
@@ -40,22 +41,29 @@ export function LandingPage() {
 
   useEffect(() => {
     const heroEl = document.querySelector("#Hero");
-    const headerEl = document.querySelector("#Header");
+    const headerEl = document.querySelector(".MuiToolbar-root");
     const options = {
       rootMargin: "0px",
-      threshold: 0.9
+      threshold: 0
     };
     let observer = new IntersectionObserver(intersectionCallback, options);
     observer.observe(heroEl);
 
     function intersectionCallback(entries) {
-      entries.forEach(() => {
-        headerEl.classList.toggle(classes.scrollHeader);
-      });
+      if (headerEl.scrollHeight !== 0) {
+        console.dir(headerEl);
+        if (headerEl.classList.contains("MuiToolbar-regular")) {
+          headerEl.classList.add("MuiToolbar-dense");
+          headerEl.classList.remove("MuiToolbar-regular");
+        } else {
+          headerEl.classList.remove("MuiToolbar-dense");
+          headerEl.classList.add("MuiToolbar-regular");
+        }
+      }
     }
   });
 
-  //Component
+  //Components
   return (
     <Grid className={classes.root} id="LandingPage" container>
       {_COMPONENTS_.map((Component, key) => {

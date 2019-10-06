@@ -19,7 +19,10 @@ import { makeStyles, useTheme } from "@material-ui/styles";
  */
 const useStyles = makeStyles({
   appBar: {
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    "& img": {
+      maxHeight: "100%"
+    }
   },
   button: {
     height: "100%",
@@ -28,7 +31,8 @@ const useStyles = makeStyles({
     }
   },
   tabs: {
-    width: "100%"
+    width: "100%",
+    maxHeight: "4rem"
   },
   toolBar: {
     display: "flex",
@@ -78,7 +82,7 @@ const generateNav = (link, key) => {
       key={key}
       disableRipple
       style={{
-        minHeight: "4rem"
+        minHeight: "100%"
       }}
       href={`#${link}`}
     >
@@ -87,7 +91,7 @@ const generateNav = (link, key) => {
   );
 };
 
-export const Header = ({ logo, ...rest }) => {
+export const Header = ({ logo }) => {
   // Styles
   const classes = useStyles();
   const width = useWidth();
@@ -96,11 +100,15 @@ export const Header = ({ logo, ...rest }) => {
   // };
   // Component
   return (
-    <AppBar className={classes.appBar} id="Header">
-      <Toolbar className={classes.toolBar}>
-        {width === "sm" ? (
+    <AppBar className={classes.appBar} position="sticky" id="Header">
+      <Toolbar variant="dense" className={classes.toolBar}>
+        {width !== "xs" ? (
           <>
-            <img height="44" alt="McKinsey & Company Logo" src={logo} />
+            <img
+              className={classes.img}
+              alt="McKinsey & Company Logo"
+              src={logo}
+            />
             <div style={{ height: "100%" }}>
               {_LINKS_.map((link, key) => {
                 return link ? generateNav(link, key) : null;
@@ -109,8 +117,10 @@ export const Header = ({ logo, ...rest }) => {
           </>
         ) : (
           <>
-            <Typography variant="h6">mds.</Typography>
             <MenuIcon />
+            <Typography gutterBottom={false} variant="h6">
+              mds.
+            </Typography>
           </>
         )}
       </Toolbar>

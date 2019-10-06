@@ -96,6 +96,18 @@
         }
       }
     },
+    "MuiToolbar": {
+      "root": {
+        "padding": ".25rem 2rem",
+        "transition": "min-height 300ms ease-in"
+      },
+      "dense": {
+        "height": "48px"
+      },
+      "regular": {
+        "height": "64px"
+      }
+    },
     "MuiTypography": {
       "gutterBottom": {
         "marginBottom": "1rem"
