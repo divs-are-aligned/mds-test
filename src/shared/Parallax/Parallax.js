@@ -2,8 +2,13 @@
 import React from "react";
 // MUI
 import { makeStyles } from "@material-ui/styles";
-// App
+// End Imports
 
+/**
+ * @name useStyles
+ * @desc This function utilizes JSS to add Component-specific styles.
+ * @todo Go through all useStyle functions to remove duplicated styles, and convert to global styles
+ */
 const useStyles = makeStyles({
   root: {
     position: "relative",
@@ -34,7 +39,6 @@ const useStyles = makeStyles({
 const Parallax = ({ routeResult }) => {
   // Styles
   const classes = useStyles();
-
   // Component
   return (
     <div className={classes.root}>

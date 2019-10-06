@@ -4,10 +4,12 @@
       "main": "#FFF"
     },
     "secondary": {
-      "main": "#F0F0F0"
+      "light": "#00A9F4",
+      "main": "#051C2C"
     },
     "text": {
-      "primary": "#000"
+      "primary": "#000",
+      "secondary": "#FFF"
     }
   },
   "typography": {
@@ -19,16 +21,89 @@
       "fontFamily": "Merriweather"
     },
     "h3": {
-      "fontFamily": "Merriweather"
+      "fontFamily": "Merriweather",
+      "fontWeight": 300,
+      "fontSize": "5rem"
     },
     "h4": {
-      "fontFamily": "Merriweather"
+      "fontFamily": "Merriweather",
+      "fontWeight": 300,
+      "fontSize": "1.75rem"
+    },
+    "h5": {
+      "fontFamily": "Source Sans Pro"
+    },
+    "subtitle2": {
+      "fontWeight": 100,
+      "fontSize": "1rem"
+    },
+    "caption": {
+      "color": "#7F7F7F"
+    }
+  },
+  "props": {
+    "MuiTypography": {
+      "display": "block",
+      "gutterBottom": true
     }
   },
   "overrides": {
+    "MuiButton": {
+      "root": {
+        "borderRadius": 0,
+        "transition": "all 200ms ease",
+        "&:hover": {
+          "color": "#1F40E6",
+          "backgroundColor": "none"
+        }
+      }
+    },
     "MuiToolbar": {
       "gutters": {
         "padding": "0 2rem"
+      }
+    },
+    "MuiExpansionPanelDetails": {
+      "root": {
+        "padding": ".5rem 3rem 1.5rem"
+      }
+    },
+    "MuiExpansionPanelSummary": {
+      "root": {
+        "paddingLeft": 0,
+        "flexDirection": "row-reverse"
+      }
+    },
+    "MuiLink": {
+      "root": {
+        "borderRadius": 0,
+        "transition": "transform 200ms ease-in-out",
+        "cursor": "pointer",
+        "& svg": {
+          "transition": "transform 200ms ease-in-out",
+          "transform": "translate(.5rem, 3px)"
+        },
+        "&:hover": {
+          "transform": "translate(0, 5px)",
+          "fontWeight": "100",
+          "text-decoration": "none !important",
+          "& svg": {
+            "transform": "translate(1rem, .125rem)"
+          }
+        },
+        "&:active": {
+          "color": "initial"
+        }
+      }
+    },
+    "MuiTypography": {
+      "gutterBottom": {
+        "marginBottom": "1rem"
+      }
+    },
+    "MuiSvgIcon": {
+      "root": {
+        "margin": ".125rem"
       }
     }
   }

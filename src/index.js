@@ -19,9 +19,22 @@ WebFont.load({
 
 const _DefaultTheme_ = createMuiTheme(Theme);
 
+// TODO: Finish
+// const GlobalCss = withStyles({
+//   "@global": {
+//     padLight: {
+//       padding: "2rem 1rem"
+//     },
+//     padHeavy: {
+//       padding: "4rem 4rem"
+//     }
+//   }
+// })(() => null);
+
 render(
   <ThemeProvider theme={_DefaultTheme_}>
     <CssBaseline />
+    {/* <GlobalCss /> */}
     <App />
   </ThemeProvider>,
   document.getElementById("root")
