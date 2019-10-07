@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import React, { useEffect } from "react";
 // MUI
 import {
   AppBar,
@@ -18,6 +18,9 @@ import { makeStyles, useTheme } from "@material-ui/styles";
  * @todo Go through all useStyle functions to remove duplicated styles, and convert to global styles
  */
 const useStyles = makeStyles({
+  activeTab: {
+    borderBottom: "3px solid #00A9F4"
+  },
   appBar: {
     flexWrap: "wrap",
     "& img": {
@@ -66,6 +69,18 @@ function useWidth() {
  */
 const _LINKS_ = ["Overview", "Resources", "Roadmap", "Community", "FAQ"];
 
+// TODO: Smooth scroll not support on chrome anymore ? Need to research
+const onNavClick = ({ currentTarget }) => {
+  debugger;
+  const elem = document.getElementById(currentTarget.id.slice(0, -3));
+  console.log(currentTarget.id.slice(0, -3));
+  elem &&
+    elem.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+};
+
 /**
  * @function* @name generateNav
  * @return { Element }
@@ -79,6 +94,8 @@ const generateNav = (link, key) => {
   // Styles
   return (
     <Button
+      onClick={onNavClick}
+      id={`${link}Tab`}
       key={key}
       disableRipple
       style={{
@@ -95,9 +112,34 @@ export const Header = ({ logo }) => {
   // Styles
   const classes = useStyles();
   const width = useWidth();
-  // const onNavClick = event => {
-  //   // setValue(newValue);
-  // };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const options = {
+      root: null,
+      threshold: 0.26,
+      rootMargin: "-150px"
+    };
+
+    let observer = new IntersectionObserver(intersectionCallback, options);
+
+    function intersectionCallback(entries) {
+      entries.forEach(entry => {
+        entry["id"] =
+          entry["id"] === "quickFixActiveNav" ? "Resources" : entry["id"];
+        const entryEl = document.getElementById(`${entry.target.id}Tab`);
+        if (entryEl && entryEl.classList.length) {
+          entry.isIntersecting
+            ? entryEl.classList.add(classes.activeTab)
+            : entryEl.classList.remove(classes.activeTab);
+        }
+      });
+    }
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+
   // Component
   return (
     <AppBar className={classes.appBar} position="sticky" id="Header">

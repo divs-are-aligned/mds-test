@@ -137,7 +137,7 @@ export const Resources = () => {
   const width = useWidth();
   // Component
   return (
-    <section className={classes.root}>
+    <section id="quickFixActiveNav" className={classes.root}>
       {width !== "xs" ? (
         <>
           <Typography variant="h5" align="center">
@@ -164,14 +164,14 @@ export const Resources = () => {
       <Grid container justify="center" classes={classes.resourceCont}>
         <Grid item xs={width !== "xs" ? 8 : 12}>
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               {_UXRESOURCES_.map((resource, key) => {
                 return resource
                   ? generateResourceBlock(classes, resource, key)
                   : null;
               })}
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               {_DEVRESOURCES_.map((resource, key) => {
                 return resource
                   ? generateResourceBlock(classes, resource, key)

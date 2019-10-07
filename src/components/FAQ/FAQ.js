@@ -81,6 +81,7 @@ const FAQ = () => {
 
   return (
     <section
+      id="FAQ"
       className={`${classes.root} ${
         width === "xs" ? classes.padLight : classes.padHeavy
       }`}

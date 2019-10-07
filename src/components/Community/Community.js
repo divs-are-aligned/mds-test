@@ -55,6 +55,7 @@ export const Community = () => {
   // Component
   return (
     <section
+      id="Community"
       className={`${classes.root} ${
         width === "xs" ? classes.padLight : classes.padHeavy
       }`}

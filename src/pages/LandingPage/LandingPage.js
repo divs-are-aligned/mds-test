@@ -40,25 +40,23 @@ export function LandingPage() {
   const classes = useStyles();
 
   useEffect(() => {
-    const heroEl = document.querySelector("#Hero");
+    const heroEl = document.querySelector("#Overview");
     const headerEl = document.querySelector(".MuiToolbar-root");
     const options = {
-      rootMargin: "0px",
+      rootMargin: "-64px",
       threshold: 0
     };
     let observer = new IntersectionObserver(intersectionCallback, options);
     observer.observe(heroEl);
 
-    function intersectionCallback(entries) {
-      if (headerEl.scrollHeight !== 0) {
-        console.dir(headerEl);
-        if (headerEl.classList.contains("MuiToolbar-regular")) {
-          headerEl.classList.add("MuiToolbar-dense");
-          headerEl.classList.remove("MuiToolbar-regular");
-        } else {
-          headerEl.classList.remove("MuiToolbar-dense");
-          headerEl.classList.add("MuiToolbar-regular");
-        }
+    // TODO: Clean up all intersection stuff
+    function intersectionCallback(entry) {
+      if (entry[0].isIntersecting) {
+        headerEl.classList.remove("MuiToolbar-dense");
+        headerEl.classList.add("MuiToolbar-regular");
+      } else {
+        headerEl.classList.add("MuiToolbar-dense");
+        headerEl.classList.remove("MuiToolbar-regular");
       }
     }
   });

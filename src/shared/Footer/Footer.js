@@ -23,7 +23,7 @@ export const Footer = ({ logo }) => {
   return (
     <footer>
       <Grid className={classes.root}>
-        <img height="60" alt="McKinsey & Company Logo" src={logo} />
+        <img height="60px" alt="McKinsey & Company Logo" src={logo} />
       </Grid>
     </footer>
   );

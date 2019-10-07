@@ -53,7 +53,7 @@ export const RoadMap = () => {
   const width = useWidth();
   // Component
   return (
-    <section className={classes.root}>
+    <section id="Roadmap" className={classes.root}>
       <Typography variant="h5" align="center" color="textSecondary">
         Roadmap
       </Typography>

@@ -64,7 +64,7 @@ export const Personas = () => {
   const classes = useStyles();
   // Component
   return (
-    <div>
+    <section id="Resources">
       <Grid container className={classes.root}>
         {_PERSONAS_.map((personaConfig, key) => {
           // Allow for more than 2 peronas
@@ -102,7 +102,7 @@ export const Personas = () => {
           );
         })}
       </Grid>
-    </div>
+    </section>
   );
 };
 

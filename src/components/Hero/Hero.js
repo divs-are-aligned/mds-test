@@ -57,7 +57,7 @@ export const Hero = () => {
   // Component
   return (
     <section
-      id="Hero"
+      id="Overview"
       className={`${classes.root} ${
         width === "xs" ? classes.padLight : classes.padHeavy
       }`}
