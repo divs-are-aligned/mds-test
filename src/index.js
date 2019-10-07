@@ -7,6 +7,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 //Other
 import WebFont from "webfontloader";
+import * as ServiceWorker from "./serviceWorker";
 // App
 import Theme from "./styles/theme.json";
 import App from "./App";
@@ -39,3 +40,5 @@ render(
   </ThemeProvider>,
   document.getElementById("root")
 );
+
+ServiceWorker.register();

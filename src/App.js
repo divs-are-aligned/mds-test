@@ -11,27 +11,29 @@ import McKLogo from "./assets/imgs/McK_ScriptMark_RGB_McKDeepBlue.png";
 /************
  * !TODO's Incomplete
  * **********
+ * [/] //* Polyfills
+ * [/] //* Webpack
  * [/] //* Parallax
  * [/] //* 100% Coverage on unit tests
  * [/] //* Lazy Load Images / Handle them gracefully
  * [/] //* Server-side render
  * [/] //* Lighthouse Audit
- * [/] //* Menu
- * [/] //* Favicon
  * [/] //* Implement Global styling with JSS
  * [/] //* Break Shared styles, components
- * [/] //* FAQ
  * [/] //? Update current outdated boilerplate on git
  * [/] //? Data service w/ node ? Too much for this ask ?
  * [/] //? Deploy
  * *TODO's Complete
  * **********
+ * [X] //* Menu
+ * [X] //* Favicon
  * [X] //* Solution using compare Sketch and .mov file
  * [X] //* Build out React boilerplate - Not McKinsey specific( dependencies, templating, base theme )
  * [X] //* Components
  * [X] //* Pages
  * [X] //* Routing
  * [X] //* Set-up unit testing
+ * [X] //* FAQ
  *************/
 
 const App = () => {

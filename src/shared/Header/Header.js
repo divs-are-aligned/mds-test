@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   button: {
     height: "100%",
     "a &:hover": {
-      color: "blue"
+      color: "#00A9F4"
     }
   },
   tabs: {
@@ -151,7 +151,7 @@ export const Header = ({ logo }) => {
               alt="McKinsey & Company Logo"
               src={logo}
             />
-            <div style={{ height: "100%" }}>
+            <div style={{ height: "100%", paddingBottom: ".25rem" }}>
               {_LINKS_.map((link, key) => {
                 return link ? generateNav(link, key) : null;
               })}
