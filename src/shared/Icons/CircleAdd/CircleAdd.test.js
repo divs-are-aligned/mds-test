@@ -1,15 +1,15 @@
 import React from "react";
 import CircleAdd from "./CircleAdd";
-import { shallow } from "enzyme";
+import { createMount } from "@material-ui/core/test-utils";
 
-describe("(Shared Component) CircleAdd", () => {
-  let _wrapper;
+describe("(Component) CircleAdd", () => {
+  let mount;
 
-  it("should render without crashing", () => {
-    _wrapper = shallow(<CircleAdd />);
+  beforeAll(() => {
+    mount = createMount();
   });
 
-  beforeEach(() => {
-    _wrapper = shallow(<CircleAdd />);
+  it("should work", () => {
+    const wrapper = mount(<CircleAdd />);
   });
 });

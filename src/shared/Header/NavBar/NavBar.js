@@ -69,7 +69,7 @@ const onNavClick = ({ currentTarget }) => {
 };
 
 /**
- * @function* @name menu
+ * @function* @name Menu
  * @return { Element }
  * @param { Array } links
  * @param { Object } resource
@@ -77,7 +77,7 @@ const onNavClick = ({ currentTarget }) => {
  * @desc This generate a resource squares
  * @todo Move into separate file
  */
-const Menu = (link, key) => {
+function Menu(link, key) {
   // Styles
   const classes = useStyles();
   /**
@@ -108,9 +108,9 @@ const Menu = (link, key) => {
       })}
     </div>
   );
-};
+}
 
-export const Header = () => {
+export const NavBar = () => {
   // Styles
   const classes = useStyles();
   const width = useWidth();
@@ -161,4 +161,4 @@ export const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

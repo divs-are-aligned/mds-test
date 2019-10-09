@@ -1,9 +1,9 @@
 import React from "react";
-import Community from "./Header";
+import NavBar from "./NavBar";
 import { shallow } from "enzyme";
 import { createShallow } from "@material-ui/core/test-utils";
 
-describe("(Component) Header", () => {
+describe("(Component) NavBar", () => {
   let shallow;
 
   beforeAll(() => {
@@ -11,6 +11,6 @@ describe("(Component) Header", () => {
   });
 
   it("should work", () => {
-    const wrapper = shallow(<Header />);
+    const wrapper = shallow(<NavBar />);
   });
 });

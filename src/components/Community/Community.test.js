@@ -2,7 +2,7 @@ import React from "react";
 import Community from "./Community";
 import { shallow } from "enzyme";
 
-describe("(Component) Resource", () => {
+describe("(Component) Community", () => {
   let _wrapper;
 
   it("should render without crashing", () => {

@@ -14,6 +14,7 @@ import OverviewImg from "../../assets/imgs/TopBanner-illustration@2x.png";
  * `viewport size` of the user
  * @todo Remove from component level: Figure out way to handle this global using the same approach.
  */
+/* istanbul ignore next */
 function useWidth() {
   const theme = useTheme();
   const keys = [...theme.breakpoints.keys].reverse();

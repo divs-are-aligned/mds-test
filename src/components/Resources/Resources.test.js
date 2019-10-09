@@ -1,15 +1,15 @@
 import React from "react";
 import Resources from "./Resources";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 describe("(Component) Resources", () => {
   let _wrapper;
 
   it("should render without crashing", () => {
-    _wrapper = shallow(<Resources />);
+    _wrapper = mount(<Resources resource={} />);
   });
 
   beforeEach(() => {
-    _wrapper = shallow(<Resources />);
+    _wrapper = mount(<Resources />);
   });
 });

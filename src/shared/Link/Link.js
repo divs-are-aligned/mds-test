@@ -16,14 +16,17 @@ const Link = ({ text, color, href, disabled }) => {
       <ReactSVG
         style={{ display: "inline-block" }}
         alt="Right Arrow"
-        beforeInjection={svg => {
-          svg.classList.add("svg-class-name");
-          svg.setAttribute(
-            `style`,
-            `display: flex;
+        beforeInjection={
+          // istanbul ignore next
+          svg => {
+            svg.classList.add("svg-class-name");
+            svg.setAttribute(
+              `style`,
+              `display: flex;
              align-self: center`
-          );
-        }}
+            );
+          }
+        }
         src={RightArrowB}
       />
     </MuiLink>

@@ -27,15 +27,18 @@ const CircleAdd = () => {
   return (
     <ReactSVG
       alt="Expand Icon"
-      beforeInjection={svg => {
-        svg.classList.add("svg-class-name");
-        svg.setAttribute(
-          `style`,
-          `width: 1.5rem;
+      beforeInjection={
+        // istanbul ignore next
+        svg => {
+          svg.classList.add("svg-class-name");
+          svg.setAttribute(
+            `style`,
+            `width: 1.5rem;
           align-self: center;
           display: flex;`
-        );
-      }}
+          );
+        }
+      }
       className={classes.root}
       src={CircleAddSVG}
     />

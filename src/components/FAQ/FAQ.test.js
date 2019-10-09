@@ -1,15 +1,15 @@
 import React from "react";
 import FAQ from "./FAQ";
-import { shallow } from "enzyme";
+import { createShallow } from "@material-ui/core/test-utils";
 
 describe("(Component) FAQ", () => {
-  let _wrapper;
+  let shallow;
 
-  it("should render without crashing", () => {
-    _wrapper = shallow(<FAQ />);
+  beforeAll(() => {
+    shallow = createShallow();
   });
 
-  beforeEach(() => {
-    _wrapper = shallow(<FAQ />);
+  it("should work", () => {
+    const wrapper = shallow(<FAQ />);
   });
 });

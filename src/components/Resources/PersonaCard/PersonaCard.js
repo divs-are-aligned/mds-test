@@ -8,6 +8,9 @@ import { Link } from "../../../shared";
 // End Imports
 
 export const PersonaCard = ({ resource }) => {
+  if (resource && Object.entries(resource).entries.length <= 0) {
+    return null;
+  }
   // Constants
   const { type, title, meta, desc, link } = resource;
   const color = type === "ux" ? "secondary" : "primary";

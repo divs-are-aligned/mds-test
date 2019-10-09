@@ -1,15 +1,16 @@
 import React from "react";
 import Footer from "./Footer";
 import { shallow } from "enzyme";
+import { createShallow } from "@material-ui/core/test-utils";
 
-describe("(Shared Component) Footer", () => {
-  let _wrapper;
+describe("(Component) Footer", () => {
+  let shallow;
 
-  it("should render without crashing", () => {
-    _wrapper = shallow(<Footer />);
+  beforeAll(() => {
+    shallow = createShallow();
   });
 
-  beforeEach(() => {
-    _wrapper = shallow(<Footer />);
+  it("should work", () => {
+    const wrapper = shallow(<Footer />);
   });
 });

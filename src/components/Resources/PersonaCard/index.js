@@ -1,3 +1,3 @@
-import PersonaCard from "./PersonaCardrd";
+import PersonaCard from "./PersonaCard";
 
 export default PersonaCard;
