@@ -4,7 +4,7 @@ import React from "react";
 import { Grid, Typography, useMediaQuery } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles";
 // Imgs
-import HeroImg from "../../assets/imgs/TopBanner-illustration@2x.png";
+import OverviewImg from "../../assets/imgs/TopBanner-illustration@2x.png";
 //End Imports
 
 /**
@@ -39,27 +39,23 @@ const useStyles = makeStyles({
   img: {
     marginTop: "1rem"
   },
-  padLight: {
-    padding: "2rem 1rem"
-  },
-  padHeavy: {
-    padding: "4rem 4rem"
-  },
   reverseCol: {
     flexDirection: "column-reverse"
   }
 });
 
-export const Hero = () => {
+export const Overview = () => {
   // Styles
   const classes = useStyles();
   const width = useWidth();
+  // Image Loading
+
   // Component
   return (
     <section
       id="Overview"
       className={`${classes.root} ${
-        width === "xs" ? classes.padLight : classes.padHeavy
+        width === "xs" ? `g_pad--light` : `g_pad--heavy`
       }`}
     >
       <Grid
@@ -85,11 +81,11 @@ export const Hero = () => {
           </Typography>
         </Grid>
         <Grid xs={12} sm={5} item>
-          <img width="90%" src={HeroImg} alt="Slack Cards" />
+          <img width="90%" data-src={OverviewImg} alt="Banner" />
         </Grid>
       </Grid>
     </section>
   );
 };
 
-export default Hero;
+export default Overview;

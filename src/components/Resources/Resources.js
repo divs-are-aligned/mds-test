@@ -9,7 +9,8 @@ import {
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/styles";
 // App
-import { Link } from "../../shared";
+import Personas from "../Personas";
+import PersonaCard from "./PersonaCard/PersonaCard";
 // End Imports
 
 /**
@@ -21,16 +22,6 @@ const useStyles = makeStyles({
   root: {
     padding: "1.25rem",
     margin: ".5rem"
-  },
-  blockRoot: {
-    padding: "1.25rem",
-    margin: ".5rem"
-  },
-  ux: {
-    backgroundColor: "#f0f0f0"
-  },
-  dev: {
-    backgroundColor: "#051C2C"
   }
 });
 
@@ -81,106 +72,59 @@ const _UXRESOURCES_ = Array(4).fill({
   link: "Lorem ipsum dolor"
 });
 
-/**
- * @function* @name generateResourceBlock
- * @return { Element }
- * @param { Object } classes
- * @param { Object } resource
- * @param { Number } key
- * @desc This generate a resource squares
- * @todo Move into separate file
- */
-const generateResourceBlock = (classes, resource, key) => {
-  return (
-    <Grid
-      className={`${classes.blockRoot} ${
-        resource.type === "dev" ? classes.dev : classes.ux
-      }`}
-      key={key}
-      xs={12}
-      item
-    >
-      <Typography
-        variant="h6"
-        color={resource.type === "ux" ? "initial" : "primary"}
-        gutterBottom={false}
-      >
-        {resource.title}
-      </Typography>
-      <Typography
-        variant="caption"
-        color={resource.type === "ux" ? "initial" : "primary"}
-      >
-        {resource.meta}
-      </Typography>
-      <Typography color={resource.type === "ux" ? "initial" : "primary"}>
-        {resource.desc}
-      </Typography>
-      <Typography
-        component="div"
-        color={resource.type === "ux" ? "initial" : "primary"}
-      >
-        <Link
-          text={resource.link || "coming soon"}
-          color={resource.type === "ux" ? "inherit" : "primary"}
-          href="/"
-          disabled={!resource.link}
-        />
-      </Typography>
-    </Grid>
-  );
-};
-
 export const Resources = () => {
   // Styles
   const classes = useStyles();
   const width = useWidth();
   // Component
   return (
-    <section id="quickFixActiveNav" className={classes.root}>
-      {width !== "xs" ? (
-        <>
-          <Typography variant="h5" align="center">
-            Design System Resources
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            align="center"
-            color="secondary"
-            className={
-              width === "md" || width === "lg" ? classes.extraPadding : ""
-            }
-          >
-            Our Design System is in its earliest stages of development.
-            Available below are resources we're actively evolving in
-            collaboration with the design and development community. Want to
-            collaborate with us or have ideas or comments?
-            <MuiLink color="inherit" href="mailto:design_system@mckinsey.com">
-              Contact us
-            </MuiLink>
-          </Typography>
-        </>
-      ) : null}
-      <Grid container justify="center" classes={classes.resourceCont}>
-        <Grid item xs={width !== "xs" ? 8 : 12}>
-          <Grid container>
-            <Grid item xs={12} sm={6}>
-              {_UXRESOURCES_.map((resource, key) => {
-                return resource
-                  ? generateResourceBlock(classes, resource, key)
-                  : null;
-              })}
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              {_DEVRESOURCES_.map((resource, key) => {
-                return resource
-                  ? generateResourceBlock(classes, resource, key)
-                  : null;
-              })}
+    <section id="Resources">
+      <Personas />
+      <div className={classes.root}>
+        {width !== "xs" ? (
+          <>
+            <Typography variant="h5" align="center">
+              Design System Resources
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              align="center"
+              color="secondary"
+              className={
+                width === "md" || width === "lg" ? classes.extraPadding : ""
+              }
+            >
+              Our Design System is in its earliest stages of development.
+              Available below are resources we're actively evolving in
+              collaboration with the design and development community. Want to
+              collaborate with us or have ideas or comments?
+              <MuiLink color="inherit" href="mailto:design_system@mckinsey.com">
+                Contact us
+              </MuiLink>
+            </Typography>
+          </>
+        ) : null}
+        <Grid container justify="center" classes={classes.resourceCont}>
+          <Grid item xs={width !== "xs" ? 8 : 12}>
+            <Grid container>
+              <Grid item xs={12} sm={6}>
+                {_UXRESOURCES_.map((resource, key) => {
+                  return resource ? (
+                    <PersonaCard key={key} resource={resource} />
+                  ) : null;
+                })}
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                {_DEVRESOURCES_.map((resource, key) => {
+                  return resource ? (
+                    <PersonaCard key={key} resource={resource} />
+                  ) : null;
+                })}
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </div>
     </section>
   );
 };

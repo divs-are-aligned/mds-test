@@ -25,12 +25,6 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: "f0f0f0"
   },
-  padLight: {
-    padding: "2rem 1rem"
-  },
-  padHeavy: {
-    padding: "4rem 4rem"
-  },
   question: {
     marginLeft: ".75rem"
   }
@@ -83,7 +77,7 @@ const FAQ = () => {
     <section
       id="FAQ"
       className={`${classes.root} ${
-        width === "xs" ? classes.padLight : classes.padHeavy
+        width === "xs" ? `g_pad--light` : `g_pad--heavy`
       }`}
     >
       <Typography color="textPrimary" variant="h5">

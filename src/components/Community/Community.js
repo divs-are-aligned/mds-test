@@ -20,12 +20,6 @@ const useStyles = makeStyles({
   },
   img: {
     marginTop: "1rem"
-  },
-  padLight: {
-    padding: "2rem 1rem"
-  },
-  padHeavy: {
-    padding: "4rem 4rem"
   }
 });
 
@@ -57,7 +51,7 @@ export const Community = () => {
     <section
       id="Community"
       className={`${classes.root} ${
-        width === "xs" ? classes.padLight : classes.padHeavy
+        width === "xs" ? `g_pad--light` : `g_pad--heavy`
       }`}
     >
       <Grid spacing={4} container>
@@ -87,7 +81,7 @@ export const Community = () => {
           </Typography>
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img width="100%" src={SlackCards} alt="Slack Cards" />
+          <img width="100%" data-src={SlackCards} alt="Slack Cards" />
         </Grid>
       </Grid>
     </section>

@@ -1,11 +1,14 @@
 // React
-import React from "react";
+import React, { useEffect } from "react";
 import { useRoutes } from "hookrouter";
-//App
+// MUI
+import { ThemeProvider } from "@material-ui/styles";
+import { withStyles } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+// App
 import AppRouter from "./routing";
 import { Header, Footer } from "./shared";
-// Assets
-import McKLogo from "./assets/imgs/McK_ScriptMark_RGB_McKDeepBlue.png";
+import { _DefaultTheme_, _GlobalStyles_ } from "./styles/global";
 // End Imports
 
 /************
@@ -15,16 +18,16 @@ import McKLogo from "./assets/imgs/McK_ScriptMark_RGB_McKDeepBlue.png";
  * [/] //* Webpack
  * [/] //* Parallax
  * [/] //* 100% Coverage on unit tests
- * [/] //* Lazy Load Images / Handle them gracefully
  * [/] //* Server-side render
  * [/] //* Lighthouse Audit
- * [/] //* Implement Global styling with JSS
- * [/] //* Break Shared styles, components
  * [/] //? Update current outdated boilerplate on git
  * [/] //? Data service w/ node ? Too much for this ask ?
  * [/] //? Deploy
  * *TODO's Complete
  * **********
+ * [X] //* Break Shared styles, components
+ * [X] //* Intersection Observer for lazy loading / above the fold content
+ * [X] //* Implement Global styling with JSS
  * [X] //* Menu
  * [X] //* Favicon
  * [X] //* Solution using compare Sketch and .mov file
@@ -38,13 +41,42 @@ import McKLogo from "./assets/imgs/McK_ScriptMark_RGB_McKDeepBlue.png";
 
 const App = () => {
   const routeResult = useRoutes(AppRouter);
+
+  // Intersection Observer
+  useEffect(() => {
+    const targets = document.querySelectorAll("img");
+    const options = {
+      rootMargin: "120px",
+      threshold: 0.1
+    };
+
+    const lazyLoad = target => {
+      const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute("data-src");
+
+            img.setAttribute("src", src);
+            observer.disconnect();
+          }
+        });
+      }, options);
+
+      io.observe(target);
+    };
+
+    targets.forEach(lazyLoad);
+  }, []);
+
   return (
-    <>
-      <Header logo={McKLogo} />
+    <ThemeProvider theme={_DefaultTheme_}>
+      <CssBaseline />
+      <Header />
       {routeResult}
-      <Footer logo={McKLogo} />
-    </>
+      <Footer />
+    </ThemeProvider>
   );
 };
 
-export default App;
+export default withStyles(_GlobalStyles_)(App);

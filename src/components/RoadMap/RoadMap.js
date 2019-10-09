@@ -73,10 +73,10 @@ export const RoadMap = () => {
           width="200"
           styles={{ maxWidth: "300px" }}
           alt="McKinsey Roadmap"
-          src={RoadMapV}
+          data-src={RoadMapV}
         />
       ) : (
-        <img width="100%" alt="McKinsey Roadmap" src={RoadMapH} />
+        <img width="100%" alt="McKinsey Roadmap" data-src={RoadMapH} />
       )}
     </section>
   );

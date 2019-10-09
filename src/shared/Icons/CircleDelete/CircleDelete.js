@@ -1,6 +1,5 @@
 // React
 import React from "react";
-import PropTypes from "prop-types";
 import ReactSVG from "react-svg";
 // Imgs
 import CircleDeleteSVG from "../../../assets/imgs/c-delete.svg";
@@ -26,7 +25,3 @@ const CircleDelete = () => {
 };
 
 export default CircleDelete;
-
-CircleDelete.propTypes = {
-  iconClass: PropTypes.object
-};

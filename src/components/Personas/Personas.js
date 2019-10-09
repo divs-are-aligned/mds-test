@@ -2,24 +2,9 @@
 import React from "react";
 // MUI
 import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
 // App
 import { Link } from "../../shared";
 //End Imports
-
-/**
- * @name useStyles
- * @desc This function utilizes JSS to add Component-specific styles.
- * @todo Go through all useStyle functions to remove duplicated styles, and convert to global styles
- */
-const useStyles = makeStyles({
-  designerClasses: {
-    backgroundColor: "#f0f0f0"
-  },
-  developerClasses: {
-    backgroundColor: "#051C2C"
-  }
-});
 
 /**
  * @name _PERSONAS_
@@ -42,7 +27,7 @@ const _PERSONAS_ = [
         desc: "Download the Sketch Library"
       }
     ],
-    className: "designerClasses",
+    className: "g_ux--bg",
     textColor: "secondary"
   },
   {
@@ -54,18 +39,16 @@ const _PERSONAS_ = [
         desc: "Get started: The Design System for Developers"
       }
     ],
-    className: "developerClasses",
+    className: "g_dev--bg",
     textColor: "primary"
   }
 ];
 
 export const Personas = () => {
-  // Styles
-  const classes = useStyles();
   // Component
   return (
-    <section id="Resources">
-      <Grid container className={classes.root}>
+    <>
+      <Grid container>
         {_PERSONAS_.map((personaConfig, key) => {
           // Allow for more than 2 peronas
           return (
@@ -73,7 +56,7 @@ export const Personas = () => {
               key={key}
               sm={12}
               md={6}
-              className={classes[personaConfig.className]}
+              className={personaConfig.className}
               style={{ padding: "2rem" }}
               item
             >
@@ -102,7 +85,7 @@ export const Personas = () => {
           );
         })}
       </Grid>
-    </section>
+    </>
   );
 };
 

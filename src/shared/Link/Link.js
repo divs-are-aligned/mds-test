@@ -1,6 +1,7 @@
 // React
 import React from "react";
 import ReactSVG from "react-svg";
+import PropTypes from "prop-types";
 // MUI
 import { Link as MuiLink } from "@material-ui/core";
 // Imgs
@@ -30,3 +31,7 @@ const Link = ({ text, color, href, disabled }) => {
 };
 
 export default Link;
+
+Link.propTypes = {
+  link: PropTypes.object.isRequired
+};

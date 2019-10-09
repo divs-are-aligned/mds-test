@@ -42,12 +42,23 @@
     }
   },
   "props": {
+    "MuiAppBar": {
+      "position": "sticky"
+    },
     "MuiTypography": {
       "display": "block",
       "gutterBottom": true
     }
   },
   "overrides": {
+    "MuiAppBar": {
+      "root": {
+        "padding": "0rem 2rem",
+        "height": "4rem",
+        "maxHeight": "3rem",
+        "transition": "max-height 300ms ease-in-out"
+      }
+    },
     "MuiButton": {
       "root": {
         "borderRadius": 0,
@@ -56,6 +67,13 @@
           "color": "#1F40E6",
           "backgroundColor": "none"
         }
+      }
+    },
+    "MuiCard": {
+      "root": {
+        "margin": ".5rem",
+        "borderRadius": 0,
+        "minWidth": 275
       }
     },
     "MuiExpansionPanelDetails": {

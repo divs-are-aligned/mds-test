@@ -2,6 +2,8 @@
 import React from "react";
 // MUI
 import { Grid, makeStyles } from "@material-ui/core";
+// Assets
+import McKLogo from "../../assets/imgs/McK_ScriptMark_RGB_McKDeepBlue.png";
 // End Imports
 
 /**
@@ -12,18 +14,22 @@ import { Grid, makeStyles } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     background: "#fff",
-    padding: "5% 45px"
+    padding: "2rem"
   }
 });
 
-export const Footer = ({ logo }) => {
+export const Footer = () => {
   // Styles
   const classes = useStyles();
   // Component
   return (
     <footer>
       <Grid className={classes.root}>
-        <img height="60px" alt="McKinsey & Company Logo" src={logo} />
+        <img
+          className="g_logo"
+          alt="McKinsey & Company Logo"
+          data-src={McKLogo}
+        />
       </Grid>
     </footer>
   );
