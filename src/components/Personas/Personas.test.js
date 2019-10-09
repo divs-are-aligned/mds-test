@@ -1,15 +1,15 @@
 import React from "react";
 import Personas from "./Personas";
-import { mount } from "enzyme";
+import { createShallow } from "@material-ui/core/test-utils";
 
 describe("(Component) Personas", () => {
-  let _wrapper;
+  let shallow;
 
-  it("should render without crashing", () => {
-    _wrapper = mount(<Personas />);
+  beforeAll(() => {
+    shallow = createShallow();
   });
 
-  beforeEach(() => {
-    _wrapper = mount(<Personas />);
+  it("should render without crashing", () => {
+    shallow(<Personas />);
   });
 });

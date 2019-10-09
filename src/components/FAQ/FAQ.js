@@ -23,7 +23,7 @@ import {
  */
 const useStyles = makeStyles({
   root: {
-    backgroundColor: "f0f0f0"
+    backgroundColor: "#f0f0f0"
   },
   question: {
     marginLeft: ".75rem"

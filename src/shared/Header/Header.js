@@ -8,6 +8,7 @@ import NavBar from "./NavBar";
 
 export const Header = () => {
   // Hooks
+  /* istanbul ignore next */
   useEffect(() => {
     const headerEl = document.getElementById("Header");
     const target = document.getElementById("Overview");

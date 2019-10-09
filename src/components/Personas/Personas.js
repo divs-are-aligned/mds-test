@@ -76,7 +76,7 @@ export const Personas = () => {
                         color={personaConfig["textColor"]}
                         key={key}
                         href="/"
-                        text={link.desc}
+                        text={link.desc || ""}
                       />
                     );
                   })

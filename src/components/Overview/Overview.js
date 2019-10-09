@@ -82,7 +82,12 @@ export const Overview = () => {
           </Typography>
         </Grid>
         <Grid xs={12} sm={5} item>
-          <img width="90%" data-src={OverviewImg} alt="Banner" />
+          <img
+            width="90%"
+            data-src={OverviewImg}
+            parallax="true"
+            alt="Banner"
+          />
         </Grid>
       </Grid>
     </section>

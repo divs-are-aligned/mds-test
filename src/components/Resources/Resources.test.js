@@ -1,15 +1,15 @@
 import React from "react";
 import Resources from "./Resources";
-import { mount } from "enzyme";
+import { createMount } from "@material-ui/core/test-utils";
 
 describe("(Component) Resources", () => {
-  let _wrapper;
+  let mount;
 
-  it("should render without crashing", () => {
-    _wrapper = mount(<Resources resource={} />);
+  beforeAll(() => {
+    mount = createMount();
   });
 
-  beforeEach(() => {
-    _wrapper = mount(<Resources />);
+  it("should work", () => {
+    mount(<Resources />);
   });
 });

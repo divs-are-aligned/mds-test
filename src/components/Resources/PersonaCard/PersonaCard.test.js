@@ -1,17 +1,16 @@
 import React from "react";
 import PersonaCard from "./PersonaCard";
-import { shallow } from "enzyme";
-import { createShallow } from "@material-ui/core/test-utils";
+import { createMount } from "@material-ui/core/test-utils";
 
 describe("(Component) PersonaCard", () => {
-  let shallow;
+  let mount;
 
-  before(() => {
-    shallow = createShallow();
+  beforeAll(() => {
+    mount = createMount();
   });
 
   it("should work", () => {
-    shallow(
+    mount(
       <PersonaCard
         resouce={{
           type: "ux",
@@ -24,7 +23,7 @@ describe("(Component) PersonaCard", () => {
       />
     );
 
-    shallow(
+    mount(
       <PersonaCard
         resouce={{
           type: "dev",

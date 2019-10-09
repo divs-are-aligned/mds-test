@@ -1,5 +1,6 @@
 // React
 import React from "react";
+import { animateScroll as scroll } from "react-scroll";
 // MUI
 import { Grid, makeStyles } from "@material-ui/core";
 // Assets
@@ -29,6 +30,7 @@ export const Footer = () => {
           className="g_logo"
           alt="McKinsey & Company Logo"
           data-src={McKLogo}
+          onClick={scroll.scrollToTop}
         />
       </Grid>
     </footer>

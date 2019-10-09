@@ -8,7 +8,7 @@ import { Link } from "../../../shared";
 // End Imports
 
 export const PersonaCard = ({ resource }) => {
-  if (resource && Object.entries(resource).entries.length <= 0) {
+  if (resource && Object.entries(resource).length <= 0) {
     return null;
   }
   // Constants

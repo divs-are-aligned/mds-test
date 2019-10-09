@@ -1,5 +1,6 @@
 // React
 import React, { useEffect } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 // MUI
 import { Button, Typography, useMediaQuery } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -58,16 +59,6 @@ function useWidth() {
   );
 }
 
-// TODO: Smooth scroll not support on chrome anymore ? Need to research
-const onNavClick = ({ currentTarget }) => {
-  const elem = document.getElementById(currentTarget.id.slice(0, -3));
-  elem &&
-    elem.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-};
-
 /**
  * @function* @name Menu
  * @return { Element }
@@ -77,7 +68,7 @@ const onNavClick = ({ currentTarget }) => {
  * @desc This generate a resource squares
  * @todo Move into separate file
  */
-function Menu(link, key) {
+export const Menu = (link, key) => {
   // Styles
   const classes = useStyles();
   /**
@@ -92,23 +83,21 @@ function Menu(link, key) {
     <div key={key} className={classes.nav}>
       {_LINKS_.map((link, key) => {
         return link ? (
-          <Button
-            onClick={onNavClick}
-            id={`${link}Tab`}
+          <Link
+            to={link}
+            spy={true}
+            smooth={true}
+            offset={-64}
+            duration={800}
             key={key}
-            disableRipple
-            style={{
-              minHeight: "100%"
-            }}
-            href={`#${link}`}
           >
-            {link}
-          </Button>
+            <Button id={`${link}Tab`}>{link}</Button>
+          </Link>
         ) : null;
       })}
     </div>
   );
-}
+};
 
 export const NavBar = () => {
   // Styles
@@ -116,12 +105,13 @@ export const NavBar = () => {
   const width = useWidth();
 
   // Hooks
+  /* istanbul ignore next */
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const options = {
       root: null,
-      threshold: 0.24,
-      rootMargin: "-84px"
+      rootMargin: "-10% 0px 15% 0px",
+      threshold: 0.4
     };
 
     let observer = new IntersectionObserver(intersectionCallback, options);
@@ -144,17 +134,26 @@ export const NavBar = () => {
   // Component
   return (
     <nav className={classes.root}>
-      {width !== "xs" ? (
+      {width === "xs" ? (
         <>
-          <img className="g_logo" alt="McKinsey & Company Logo" src={McKLogo} />
-          <Menu />
+          <MenuIcon />
+          <Typography
+            gutterBottom={false}
+            variant="h6"
+            onClick={scroll.scrollToTop}
+          >
+            mds.
+          </Typography>
         </>
       ) : (
         <>
-          <MenuIcon />
-          <Typography gutterBottom={false} variant="h6">
-            mds.
-          </Typography>
+          <img
+            className="g_logo"
+            alt="McKinsey & Company Logo"
+            src={McKLogo}
+            onClick={scroll.scrollToTop}
+          />
+          <Menu />
         </>
       )}
     </nav>

@@ -1,15 +1,15 @@
 import React from "react";
 import Overview from "./Overview";
-import { mount } from "enzyme";
+import { createShallow } from "@material-ui/core/test-utils";
 
 describe("(Component) Overview", () => {
-  let _wrapper;
+  let shallow;
 
-  it("should render without crashing", () => {
-    _wrapper = mount(<Overview />);
+  beforeAll(() => {
+    shallow = createShallow();
   });
 
-  beforeEach(() => {
-    _wrapper = mount(<Overview />);
+  it("should render without crashing", () => {
+    shallow(<Overview />);
   });
 });

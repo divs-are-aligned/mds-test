@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
-import { shallow } from "enzyme";
-import { createShallow } from "@material-ui/core/test-utils";
+import Menu from "./NavBar";
+import { createShallow, createMount } from "@material-ui/core/test-utils";
 
 describe("(Component) NavBar", () => {
   let shallow;
@@ -12,5 +12,17 @@ describe("(Component) NavBar", () => {
 
   it("should work", () => {
     const wrapper = shallow(<NavBar />);
+  });
+});
+
+describe("(Component) Menu", () => {
+  let mount;
+
+  beforeAll(() => {
+    mount = createMount();
+  });
+
+  it("should work", () => {
+    const wrapper = mount(<NavBar />);
   });
 });

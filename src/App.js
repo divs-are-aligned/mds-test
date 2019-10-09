@@ -9,22 +9,22 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppRouter from "./routing";
 import { Header, Footer } from "./shared";
 import { _DefaultTheme_, _GlobalStyles_ } from "./styles/global";
+// Parallax // TODO:: Write out own solution using intersection observer
+import simpleParallax from "simple-parallax-js";
 // End Imports
 
 /************
  * !TODO's Incomplete
  * **********
- * [/] //* Polyfills
  * [/] //* Webpack
- * [/] //* Parallax
- * [/] //* 100% Coverage on unit tests
+ * [/] //* 100% Coverage on unit tests // Fix errors occuring with obervers
  * [/] //* Server-side render
  * [/] //* Lighthouse Audit
- * [/] //? Update current outdated boilerplate on git
- * [/] //? Data service w/ node ? Too much for this ask ?
- * [/] //? Deploy
+ * [/] //! Update current outdated boilerplate on git
  * *TODO's Complete
  * **********
+ * [X] //? Deploy
+ * [X] //* Parallax
  * [X] //* Break Shared styles, components
  * [X] //* Intersection Observer for lazy loading / above the fold content
  * [X] //* Implement Global styling with JSS
@@ -43,6 +43,7 @@ const App = () => {
   const routeResult = useRoutes(AppRouter);
 
   // Intersection Observer
+  /* istanbul ignore next */
   useEffect(() => {
     const targets = document.querySelectorAll("img");
     const options = {
@@ -58,6 +59,16 @@ const App = () => {
             const src = img.getAttribute("data-src");
 
             img.setAttribute("src", src);
+
+            if (img.hasAttribute("parallax")) {
+              new simpleParallax(img, {
+                overflow: true,
+                orientation: "up",
+                transition: "linear",
+                delay: 0.0
+              });
+            }
+
             observer.disconnect();
           }
         });

@@ -1,11 +1,15 @@
 import React from "react";
 import AppRouter from "./AppRouter";
-import { mount } from "enzyme";
+import { createMount } from "@material-ui/core/test-utils";
 
-describe("(Router) AppRouter", () => {
-  let _wrapper;
+describe("(Component) PersonaCard", () => {
+  let mount;
 
-  it("should render without crashing", () => {
-    console.log(AppRouter);
+  beforeAll(() => {
+    mount = createMount();
+  });
+
+  it("should work", () => {
+    mount(<AppRouter />);
   });
 });

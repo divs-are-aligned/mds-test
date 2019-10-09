@@ -8,10 +8,10 @@ import { Link as MuiLink } from "@material-ui/core";
 import RightArrowB from "../../assets/imgs/RightArrow-ElectricBlue.svg";
 // End Imports
 
-const Link = ({ text, color, href, disabled }) => {
+const Link = ({ text, color, href }) => {
   // Component
   return (
-    <MuiLink component="div" disabled={disabled} href={href} color={color}>
+    <MuiLink component="div" href={href} color={color}>
       {text}
       <ReactSVG
         style={{ display: "inline-block" }}
@@ -36,5 +36,7 @@ const Link = ({ text, color, href, disabled }) => {
 export default Link;
 
 Link.propTypes = {
-  link: PropTypes.object.isRequired
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired
 };

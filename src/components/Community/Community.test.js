@@ -1,15 +1,15 @@
 import React from "react";
 import Community from "./Community";
-import { shallow } from "enzyme";
+import { createShallow } from "@material-ui/core/test-utils";
 
 describe("(Component) Community", () => {
-  let _wrapper;
+  let shallow;
 
-  it("should render without crashing", () => {
-    _wrapper = shallow(<Community />);
+  beforeAll(() => {
+    shallow = createShallow();
   });
 
-  beforeEach(() => {
-    _wrapper = shallow(<Community />);
+  it("should render without crashing", () => {
+    shallow(<Community />);
   });
 });

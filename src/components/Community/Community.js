@@ -82,7 +82,12 @@ export const Community = () => {
           </Typography>
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img width="100%" data-src={SlackCards} alt="Slack Cards" />
+          <img
+            width="100%"
+            data-src={SlackCards}
+            parallax="true"
+            alt="Slack Cards"
+          />
         </Grid>
       </Grid>
     </section>

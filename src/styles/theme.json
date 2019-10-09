@@ -45,6 +45,9 @@
     "MuiAppBar": {
       "position": "sticky"
     },
+    "MuiButtonBase": {
+      "disableRipple": true
+    },
     "MuiTypography": {
       "display": "block",
       "gutterBottom": true
@@ -61,6 +64,7 @@
     },
     "MuiButton": {
       "root": {
+        "minHeight": "100%",
         "borderRadius": 0,
         "transition": "all 200ms ease",
         "&:hover": {

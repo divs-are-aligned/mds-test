@@ -10,7 +10,8 @@ export const _GlobalStyles_ = _DefaultTheme_ => ({
       padding: ".5rem .0rem",
       height: "80%",
       maxHeight: "4rem",
-      boxSizing: "content-box"
+      boxSizing: "content-box",
+      cursor: "pointer"
     },
     ".g_pad--light": {
       padding: "2rem 1rem"
@@ -27,6 +28,17 @@ export const _GlobalStyles_ = _DefaultTheme_ => ({
     ".g_dev--bg": {
       backgroundColor: "#051C2C"
     }
+
+    // ".g_io-helper": {
+    //   position: "fixed",
+    //   bottom: "25vh",
+    //   top: "25vh",
+    //   left: "0",
+    //   width: "100%",
+    //   backgroundColor: "transparent",
+    //   border: "4px dashed black",
+    //   zIndex: "2"
+    // }
   }
 });
 
