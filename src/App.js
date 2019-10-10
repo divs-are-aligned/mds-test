@@ -16,6 +16,7 @@ import simpleParallax from "simple-parallax-js";
 /************
  * !TODO's Incomplete
  * **********
+ * [/] //? Deploy
  * [/] //* Webpack
  * [/] //* 100% Coverage on unit tests // Fix errors occuring with obervers
  * [/] //* Server-side render
@@ -23,7 +24,6 @@ import simpleParallax from "simple-parallax-js";
  * [/] //! Update current outdated boilerplate on git
  * *TODO's Complete
  * **********
- * [X] //? Deploy
  * [X] //* Parallax
  * [X] //* Break Shared styles, components
  * [X] //* Intersection Observer for lazy loading / above the fold content
